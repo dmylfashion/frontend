@@ -1,0 +1,48 @@
+.questionnaire {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+.intro {
+  font-style: italic;
+  color: #555;
+}
+.progress-bar {
+  height: 5px;
+  background: #007bff;
+  transition: width 0.3s ease;
+}
+label {
+  display: block;
+  margin: 15px 0 5px;
+  font-weight: bold;
+}
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+input[type="range"] {
+  accent-color: #007bff;
+}
+span { /* Live feedback */
+  display: block;
+  font-size: 0.9em;
+  color: #007bff;
+}
+button {
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin: 10px 5px;
+  cursor: pointer;
+}
+button:hover {
+  background: #0056b3;
+}
+p { color: red; font-size: 0.9em; }
