@@ -124,7 +124,7 @@ const Questionnaire = () => {
                 <Controller
                   name="genre"
                   control={control}
-                  render={({ field }) => <Select {...field} options={genreOptions} />}
+                  render={({ field }) => <Select {...field} options={genreOptions} aria-label="Select genre" />}
                 />
                 {errors.genre && <p>{errors.genre.message}</p>}
 
@@ -133,7 +133,7 @@ const Questionnaire = () => {
                 <Controller
                   name="mood"
                   control={control}
-                  render={({ field }) => <Select {...field} options={moodOptions} />}
+                  render={({ field }) => <Select {...field} options={moodOptions} aria-label="Select mood" />}
                 />
                 {errors.mood && <p>{errors.mood.message}</p>}
 
@@ -146,13 +146,13 @@ const Questionnaire = () => {
                 <h2>Step 2: Dial in Pace & Energy</h2>
                 <label>Tempo (BPM): <a data-tooltip-id="tempo-tip">ℹ️</a></label>
                 <Tooltip id="tempo-tip" content="120 BPM is dance-floor gold—slide to your beat!" />
-                <input type="range" min="60" max="200" {...register('tempo')} />
-                <span>{watch('tempo')} BPM</span> {/* Secret: Live feedback focuses attention */}
+                <input type="range" min="60" max="200" {...register('tempo')} aria-label="Tempo slider" />
+                <span aria-live="polite">{watch('tempo')} BPM</span> {/* Accessibility: Live region */}
                 {errors.tempo && <p>{errors.tempo.message}</p>}
 
                 <label>Intensity: <a data-tooltip-id="intensity-tip">ℹ️</a></label>
                 <Tooltip id="intensity-tip" content="High intensity = epic drops—perfect for workouts or ads!" />
-                <select {...register('intensity')}>
+                <select {...register('intensity')} aria-label="Select intensity">
                   {intensityOptions.map((opt) => <option key={opt} value={opt}>{opt}</option>)}
                 </select>
                 {errors.intensity && <p>{errors.intensity.message}</p>}
@@ -169,16 +169,16 @@ const Questionnaire = () => {
                 <h2>Step 3: Shape Length & Style</h2>
                 <label>Length (seconds): <a data-tooltip-id="length-tip">ℹ️</a></label>
                 <Tooltip id="length-tip" content="180s is TikTok-ready—extend for full stories!" />
-                <input type="number" {...register('length')} />
+                <input type="number" {...register('length')} aria-label="Track length" />
                 {errors.length && <p>{errors.length.message}</p>}
 
                 <label>Key: <a data-tooltip-id="key-tip">ℹ️</a></label>
                 <Tooltip id="key-tip" content="C Major keeps it uplifting—pro secret for feel-good vibes." />
-                <input {...register('key')} placeholder="e.g., C Major" />
+                <input {...register('key')} placeholder="e.g., C Major" aria-label="Musical key" />
 
                 <label>Structure: <a data-tooltip-id="structure-tip">ℹ️</a></label>
                 <Tooltip id="structure-tip" content="Verse-Chorus builds hooks—catchy for streams!" />
-                <input {...register('structure')} placeholder="e.g., Verse-Chorus-Verse" />
+                <input {...register('structure')} placeholder="e.g., Verse-Chorus-Verse" aria-label="Song structure" />
 
                 <div>
                   <button type="button" onClick={prevStep}>Back</button>
@@ -192,27 +192,27 @@ const Questionnaire = () => {
                 <h2>Step 4: Add Lyrics & Polish</h2>
                 <label>Include Lyrics? <a data-tooltip-id="lyrics-tip">ℹ️</a></label>
                 <Tooltip id="lyrics-tip" content="Lyrics tell stories—boost shares and connects!" />
-                <input type="checkbox" {...register('hasLyrics')} />
+                <input type="checkbox" {...register('hasLyrics')} aria-label="Include lyrics" />
 
                 {hasLyrics && (
                   <>
                     <label>Lyric Theme: <a data-tooltip-id="theme-tip">ℹ️</a></label>
                     <Tooltip id="theme-tip" content="Love themes dominate charts—make it personal!" />
-                    <input {...register('lyricTheme')} placeholder="e.g., Love, Adventure" />
+                    <input {...register('lyricTheme')} placeholder="e.g., Love, Adventure" aria-label="Lyric theme" />
                     {errors.lyricTheme && <p>{errors.lyricTheme.message}</p>}
                   </>
                 )}
 
                 <label>Vocal Style: <a data-tooltip-id="vocal-tip">ℹ️</a></label>
                 <Tooltip id="vocal-tip" content="Robotic for futuristic edge—stand out!" />
-                <input {...register('vocalStyle')} placeholder="e.g., Male, Female, Robotic" />
+                <input {...register('vocalStyle')} placeholder="e.g., Male, Female, Robotic" aria-label="Vocal style" />
 
                 <label>Instrument Preferences: <a data-tooltip-id="instruments-tip">ℹ️</a></label>
                 <Tooltip id="instruments-tip" content="Guitar + synth = hybrid magic—pro blend!" />
-                <input {...register('instruments')} placeholder="e.g., Guitar, Piano" />
+                <input {...register('instruments')} placeholder="e.g., Guitar, Piano" aria-label="Instruments" />
 
                 <label>Include Music? (Always Recommended)</label>
-                <input type="checkbox" checked disabled />
+                <input type="checkbox" checked disabled aria-label="Include music (enabled)" />
 
                 <div>
                   <button type="button" onClick={prevStep}>Back</button>
