@@ -31,7 +31,7 @@ const EditorDashboard = () => {
       {submissions.map((sub) => (
         <div key={sub.id}>
           <p>Prompt: {sub.prompt}</p>
-          <audio controls src={sub.audioUrl} />
+          <audio controls src={sub.audioUrl} aria-label="Preview audio" />
           <button onClick={() => handleApprove(sub.id, true)}>Approve</button>
           <button onClick={() => handleApprove(sub.id, false)}>Disapprove</button>
         </div>
