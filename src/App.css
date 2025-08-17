@@ -1,5 +1,26 @@
-.questionnaire {
+.questionnaire, .editor, .portal {
   max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+form label {
+  display: block;
+  margin-top: 10px;
+}
+input, select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+button {
+  margin-top: 20px;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+}
+.questionnaire {
+  max-width: clamp(300px, 80vw, 600px); /* Accessibility: Responsive clamp */
   margin: 0 auto;
   padding: 20px;
   text-align: center;
